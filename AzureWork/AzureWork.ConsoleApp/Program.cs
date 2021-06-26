@@ -1,4 +1,5 @@
 ﻿using AzureWork.ConsoleApp.AzureFeatures;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace AzureWork.ConsoleApp
@@ -7,18 +8,22 @@ namespace AzureWork.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var featureRunner = AzureFeatureRunnerFactory("blobStorage");
-            featureRunner.Run();
+            var services = new ServiceCollection();
+            AddServices(services, "blobStorage");
 
+            var featureRunner = services.BuildServiceProvider().GetService<IAzureFeatureRunner>();
+            featureRunner.Run();
             Console.WriteLine("Feature run completed");
         }
 
-        private static IAzureFeatureRunner AzureFeatureRunnerFactory(string featureName)
+        private static void AddServices(IServiceCollection services, string featureName)
         {
             switch (featureName)
             {
                 case "blobStorage":
-                    return new BlobStorageRunner();
+                    services.AddBlobStorageService();
+                    services.AddTransient<IAzureFeatureRunner, BlobStorageRunner>();
+                    break;
                 default:
                     throw new NotImplementedException();
             }

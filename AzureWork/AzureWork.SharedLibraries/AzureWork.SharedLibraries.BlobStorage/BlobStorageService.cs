@@ -1,8 +1,8 @@
 ﻿using Azure.Storage.Blobs;
 
-namespace AzureWork.SharedLibraries.BlobStorage
+namespace VA.AzureWork.SharedLibraries.BlobStorage
 {
-    public class BlobStorageService
+    public class BlobStorageService: IBlobStorageService
     {
         public BlobStorageClient GetContainerClient(string connectionString, string containerName)
         {

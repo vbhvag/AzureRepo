@@ -7,3 +7,7 @@
 /AzureWork/AzureWork.ConsoleApp/obj
 /AzureWork/AzureWork.ConsoleApp/bin
 /AzureWork/.vs/AzureWork/v16
+/AzureWork/AzureWork.Local.NugetPckgs
+/.vs
+/AzureWork/AzureWork.SharedLibraries/AzureWork.SharedLibraries.BlobStorage/AzureWork.SharedLibraries.BlobStorage.csproj.user
+/AzureWork/AzureWork.SharedLibraries/AzureWork.SharedLibraries.BlobStorage/Properties/PublishProfiles
