@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>VA.Helper.Az.Blob.Storage</PackageId>
+    <Authors>Vaibhav Agrawal</Authors>
+    <Company>VBHVAG</Company>
+    <Product>VA.Helper.Az.Blob.Storage</Product>
+    <Description>This is the wrapper written over Azure Blob Storage: V12.9. It includes basic methods for Upload, Download and List all blob names for a specific given container in Azure Blob Storage.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.9.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AzureWork/AzureWork.SharedLibraries/AzureWork.SharedLibraries.BlobStorage/obj
+/AzureWork/AzureWork.SharedLibraries/AzureWork.SharedLibraries.BlobStorage/bin
+/AzureWork/AzureWork.ConsoleApp/obj
+/AzureWork/AzureWork.ConsoleApp/bin
+/AzureWork/.vs/AzureWork/v16
