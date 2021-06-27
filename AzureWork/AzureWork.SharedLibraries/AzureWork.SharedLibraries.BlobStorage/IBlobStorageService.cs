@@ -1,26 +1,26 @@
-﻿namespace VA.AzureWork.SharedLibraries.BlobStorage
+﻿namespace VA.Azure.BlobStorage.Service
 {
-    
+    /// <summary>
+    ///    This provides an instance of BlobStorageClient that provides all required methods (like: upload, download, list blob names)
+    /// </summary>
     public interface IBlobStorageService
     {
-        /// Summary:
-        ///   This method will create an instance of BlobStorageClient that all required methods (like: upload, download, list blob names)
-        /// 
-        /// Parameters:
-        ///   connectionString:
+        /// <summary>
+        ///   This method will create an instance of BlobStorageClient that provides all required methods (like: upload, download, list blob names)
+        /// </summary>
+        /// <param name="connectionString">
         ///     A connection string includes the authentication information required for your
         ///     application to access data in an Azure Storage account at runtime. For more information,
         ///     Configure Azure Storage connection strings.
-        ///     
-        ///   containerName:
-        ///      The name of the blob container to reference. If container with given name not 
+        /// </param>
+        /// <param name="containerName">
+        ///     The name of the blob container to reference. If container with given name not 
         ///      exists then it will be created
-        ///     
-        /// Returns:
-        ///    BlobStorageClient:
-        ///      An object of BlobStorageClient is returned that allows to manipulate Azure Storage
-        ///      containers and their blobs.
-        ///      
+        /// </param>
+        /// <returns>
+        ///     BlobStorageClient: An object of BlobStorageClient is returned that allows to manipulate Azure Storage
+        ///     containers and their blobs.
+        /// </returns> 
         BlobStorageClient GetContainerClient(string connectionString, string containerName);
     }
 }

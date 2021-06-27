@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<PackageId>VA.Helper.Az.Blob.Storage</PackageId>
+		<PackageId>VA.Azure.BlobStorage.Service</PackageId>
 		<Authors>Vaibhav Agrawal</Authors>
 		<Company>VBHVAG</Company>
 		<Product>VA.Helper.Az.Blob.Storage</Product>
@@ -11,8 +11,8 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>.NET Core, Azure, Blob</PackageTags>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<RootNamespace>VA.AzureWork.SharedLibraries.BlobStorage</RootNamespace>
-		<Version>1.0.7</Version>
+		<RootNamespace>VA.Azure.BlobStorage.Service</RootNamespace>
+		<Version>1.0.0</Version>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 
@@ -22,7 +22,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Azure.Storage.Blobs" Version="12.9.1" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.10" />
 	</ItemGroup>
 
 </Project>

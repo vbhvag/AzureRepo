@@ -4,50 +4,47 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace VA.AzureWork.SharedLibraries.BlobStorage
+namespace VA.Azure.BlobStorage.Service
 {
+    /// <summary>
+    /// This class is the wrapper over a Azure.Blob.Storage. With this class you can Upload and download the blobs
+    /// Also get name of blobs in a given container.
+    /// </summary>
     public sealed class BlobStorageClient
     {
         private readonly BlobContainerClient _blobClient;
+
+        /// <summary>
+        /// An object of BlobStorageClient can be created by providing an instance of Azure.Storage.Blobs.BlobContainerClient
+        /// </summary>
+        /// <param name="blobClient">object of Azure.Storage.Blobs.BlobContainerClient</param>
         public BlobStorageClient(BlobContainerClient blobClient)
         {
             _blobClient = blobClient;
         }
 
         /// <summary>
-        /// Summary:
         ///   This method will create a new block blob or overwrite an exiting blob with the given name
         ///   It internally calls the Azure.Storage.Blobs.BlobClient.UploadAsync(Stream content, bool overwrite = false, CancellationToken cancellationToken = default)
         ///   with default values as: 
         ///   overwrite : true => with this setting an existing blob is overwritten
         ///   cancellationToken: default value of cancellation token is send
-        /// 
-        /// Parameters:
-        ///   blobName:
-        ///     The name of the blob.
-        ///     
-        ///   content:
-        ///      A System.IO.Stream containing the content to upload.
-        /// </summary>  
+        /// </summary>
+        /// <param name="blobName">The name of the blob.</param>
+        /// <param name="content"> A System.IO.Stream containing the content to upload.</param>
         public Task UploadBlobAsync(string blobName, Stream content)
         {
             return UploadBlob(blobName, content);
         }
 
         /// <summary>
-        /// Summary:
         ///   This method downloads the blob for a given blob name. 
         ///   It internally calls the  Azure.Storage.Blobs.Specialized.BlobBaseClient.DownloadAsync, which returns an 
         ///   object of Azure.Storage.Blobs.Models.BlobDownloadInfo.Content that contains the blob's data in 
         ///   format System.IO.Stream
-        /// 
-        /// Parameters:
-        ///   blobName:
-        ///     The name of the blob.
-        ///     
-        /// Return:
-        ///   A System.IO.Stream containing the content to download.
-        ///</summary>
+        /// </summary>
+        /// <param name="blobName">The name of the blob.</param>
+        /// <returns>A System.IO.Stream containing the content to download.</returns>
         public Task<Stream> DownloadAsync(string blobName)
         {
             return Download(blobName);
@@ -57,10 +54,8 @@ namespace VA.AzureWork.SharedLibraries.BlobStorage
         /// Summary:
         ///   This method return a collection of name of blobs in a given container. 
         ///   It internally calls the Azure.Storage.Blobs.BlobContainerClient.GetBlobsAsync, which returns an async sequence of blobs in this container.
-        ///     
-        /// Return:
-        ///   A System.Collections.Generic.List of strings containing the blob names.
-        ///</summary>
+        /// </summary>
+        /// <returns>A System.Collections.Generic.List of strings containing the blob names.</returns>
         public Task<List<string>> ListAllBlobNames()
         {
             return ListBlobNames();
